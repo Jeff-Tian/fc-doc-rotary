@@ -1,0 +1,97 @@
+{
+    "env": {
+        "OSS_REGION": "from .env",
+        "NODE_VERSION": "8.9.0",
+        "HOSTNAME": "9efa556a6978",
+        "TERM": "xterm",
+        "PYTHONUSERBASE": "/code/.fun/python",
+        "LD_LIBRARY_PATH": "/code/.fun/root/usr/lib/x86_64-linux-gnu/nss:/code/.fun/root/usr/lib:/code/.fun/root/usr/lib/x86_64-linux-gnu:/code/.fun/root/lib/x86_64-linux-gnu:/code/.fun/root/usr/lib64:/code:/code/lib:/usr/local/lib:/mnt/auto/usr/lib:/mnt/auto/usr/lib/x86_64-linux-gnu:/mnt/auto/lib/x86_64-linux-gnu:/mnt/auto/usr/lib64",
+        "PATH": "/code/.fun/root/usr/local/bin:/code/.fun/root/usr/local/sbin:/code/.fun/root/usr/bin:/code/.fun/root/usr/sbin:/code/.fun/root/sbin:/code/.fun/root/bin:/code/.fun/python/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/sbin:/bin:/mnt/auto/usr/local/bin:/mnt/auto/usr/local/sbin:/mnt/auto/usr/bin:/mnt/auto/usr/sbin:/mnt/auto/sbin:/mnt/auto/bin",
+        "PWD": "/code",
+        "FC_FUNC_CODE_PATH": "/code/",
+        "NODE_PATH": "/usr/local/lib/node_modules",
+        "SHLVL": "1",
+        "HOME": "/tmp",
+        "YARN_VERSION": "1.2.1",
+        "PYTHONPATH": "/mnt/auto/python/lib/python2.7/site-packages:/mnt/auto/python/lib/python3.6/site-packages",
+        "OSS_BUCKET": "from .env",
+        "_": "/usr/local/bin/node"
+    },
+    "context": {
+        "requestId": "8a575c10-3347-40b1-8e6e-6a5b27e08243",
+        "credentials": {
+            "accessKeyId": "xxx",
+            "accessKeySecret": "yyy",
+            "securityToken": "zzz"
+        },
+        "function": {
+            "name": "word2pdf-nodejs8",
+            "handler": "index.handler",
+            "memory": 640,
+            "timeout": 60,
+            "initializationTimeout": null
+        },
+        "service": {
+            "name": "libreoffice",
+            "logProject": "",
+            "logStore": "",
+            "qualifier": "LATEST",
+            "versionId": ""
+        },
+        "region": "from .env",
+        "accountId": "from .env",
+        "logger": {
+            "domain": null,
+            "_events": {},
+            "_eventsCount": 0,
+            "transports": {
+                "console": {
+                    "domain": null,
+                    "_events": {},
+                    "_eventsCount": 0,
+                    "silent": false,
+                    "raw": false,
+                    "name": "console",
+                    "level": "silly",
+                    "handleExceptions": false,
+                    "exceptionsLevel": "error",
+                    "humanReadableUnhandledException": false,
+                    "json": false,
+                    "colorize": false,
+                    "prettyPrint": false,
+                    "showLevel": true,
+                    "label": null,
+                    "logstash": false,
+                    "depth": null,
+                    "align": false,
+                    "stderrLevels": {
+                        "error": true,
+                        "debug": true
+                    },
+                    "eol": "\n"
+                }
+            },
+            "_names": [
+                "console"
+            ],
+            "padLevels": false,
+            "levels": {
+                "error": 0,
+                "warn": 1,
+                "info": 2,
+                "verbose": 3,
+                "debug": 4,
+                "silly": 5
+            },
+            "id": null,
+            "level": "info",
+            "emitErrs": false,
+            "stripColors": false,
+            "exitOnError": true,
+            "exceptionHandlers": {},
+            "profilers": {},
+            "rewriters": [],
+            "filters": []
+        }
+    }
+}
