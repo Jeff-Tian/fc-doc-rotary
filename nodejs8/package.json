@@ -4,11 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require espower-typescript/guess \"test/**/*.test.ts\" --timeout 60000"
+    "test": "mocha --require espower-typescript/guess \"test/**/*.test.ts\" --timeout 60000",
+    "dev": "webpack --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js&&copy dist\\index.js index.js&&type index.js | clip.exe",
+    "local": "cd ..&&fun local invoke -e test.txt word2pdf-nodejs8&&cd nodejs8",
+    "remote": "cd ..&&fun invoke word2pdf-nodejs8 -e http://libre-office.oss-cn-shanghai.aliyuncs.com/10.28%20T%26D%20%E7%94%B0%E6%9D%B0%20WeeklyReport.docx&&cd nodejs8",
+    "tsc": "tsc",
+    "deploy": "cd ..&&fun deploy"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ali-oss": "^6.5.1",
     "ramda": "^0.27.0",
     "request": "^2.88.0"
   },
