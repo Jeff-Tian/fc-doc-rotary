@@ -2,6 +2,15 @@
 
 > [doc-rotary](https://github.com/Jeff-Tian/doc-rotary) 的阿里云函数计算版本。
 
+
+## 使用
+
+- http request:
+https://1546617239930485.cn-shanghai.fc.aliyuncs.com/2016-08-15/proxy/libreoffice/word2pdf-nodejs8/?file=your-doc-file-url
+
+- [doc-giggle](https://github.com/Jeff-Tian/doc-giggle)
+nodejs 调用
+
 ## 参考
 
 - https://yq.aliyun.com/articles/718653?spm=a2c4e.11153940.0.0.2a0f680cKaOHMN
