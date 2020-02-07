@@ -10,40 +10,55 @@ const defaultArgs = ["--headless", "--invisible", "--nodefault", "--view", "--no
 const defaultDoc = '/tmp/example.docx';
 execSync(`cp -f /code/example.docx ${defaultDoc}`);
 
-module.exports.handler = (sourceFileUrl, context, callback) => {
+
+const commandHandler: any = (sourceFileUrl, context, callback) => {
   if (sourceFileUrl) {
     return download(sourceFileUrl, (err, filePath) => {
       if (err) {
         return callback(err);
       }
-
       console.log('downloaded to ', filePath);
-
       if (!filePath) {
         return callback('downloaded file path is empty! ' + JSON.stringify(filePath));
       }
-
       convertFile(filePath, context, callback);
-    })
+    });
   }
-
   convertFile(defaultDoc, context, callback);
 };
+
+module.exports.handler = (request, response, context) => {
+  const sourceFileUrl = encodeURI(decodeURIComponent(request.queries.file));
+
+  commandHandler(sourceFileUrl, context, (err, pdfFileUrl) => {
+    response.setHeader('content-type', 'application/json');
+
+    if (err) {
+      response.setStatusCode(500);
+      response.send(JSON.stringify({
+        sourceFileUrl,
+        pdfFileUrl,
+        err
+      }))
+    } else {
+      response.setStatusCode(200);
+      response.send(JSON.stringify({ sourceFileUrl, pdfFileUrl }));
+    }
+  })
+}
+
+module.exports.commandHandler = commandHandler;
 
 function convertFile(filePath, context, callback) {
   const logsForCheck = execSync(`pwd&&ls -all&&ls -all /tmp`);
   console.log('checking...', logsForCheck.toString('utf8'));
 
-  const command = `cd /tmp && ${binPath} ${defaultArgs.join(' ')} --convert-to pdf --outdir /tmp ${filePath}`;
+  const command = `cd /tmp && ${binPath} ${defaultArgs.join(' ')} --convert-to pdf --outdir /tmp "${filePath}"`;
 
   console.log('will execute : ', command)
   const logs = execSync(command);
 
-  if (logs.indexOf('Error: source file could not be loaded') >= 0) {
-    return callback(logs);
-  }
-
-  execSync(`cd /tmp && rm ${filePath}&&ls /tmp`);
+  execSync(`cd /tmp && rm "${filePath}"&&ls /tmp`);
   console.log(logs.toString('utf8'));
 
   if (logs.indexOf('Error: source file could not be loaded') >= 0) {
@@ -72,5 +87,5 @@ async function uploadToOss(context, file) {
   });
   await client.putACL(filename, 'public-read');
 
-  return result.url.replace('-internal.aliyuncs.com/', '.aliyuncs.com/');
+  return result.url.replace('-internal.aliyuncs.com/', '.aliyuncs.com/').replace('http://', 'https://');
 }

@@ -14,6 +14,7 @@ nodejs 调用
 ## 参考
 
 - https://yq.aliyun.com/articles/718653?spm=a2c4e.11153940.0.0.2a0f680cKaOHMN
+- https://github.com/vangie/libreoffice-example/blob/master/README.md
 
 ## 准备
 
