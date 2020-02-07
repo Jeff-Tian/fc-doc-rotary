@@ -3,6 +3,7 @@ template.yml
 nodejs8/node_modules
 nodejs8/dist
 nodejs8/target
+nodejs8/index.js
 
 .fun/tmp
 

@@ -67,7 +67,9 @@ async function uploadToOss(context, file) {
   });
 
   const filename = path.basename(file);
-  let result = await client.put(filename, file);
+  let result = await client.put(filename, file, {
+    timeout: 1000 * 60 * 10
+  });
   await client.putACL(filename, 'public-read');
 
   return result.url.replace('-internal.aliyuncs.com/', '.aliyuncs.com/');
