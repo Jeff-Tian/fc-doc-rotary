@@ -15,7 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ali-oss": "^6.5.1",
+    "ali-oss": "^6.18.1",
     "ramda": "^0.27.0",
     "request": "^2.88.0"
   },
